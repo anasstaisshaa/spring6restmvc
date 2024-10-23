@@ -56,6 +56,16 @@ class CustomerControllerTest {
     ArgumentCaptor<Customer> customerArgumentCaptor;
 
     @Test
+    void getCustomerByIdNotFound() throws Exception {
+
+        given(customerService.getCustomerById(any(UUID.class))).willThrow(NotFoundException.class);
+
+        mockMvc.perform(get(CustomerController.CUSTOMER_PATH_ID, UUID.randomUUID()))
+                .andExpect(status().isNotFound());
+
+    }
+
+    @Test
     void testPatchCustomer() throws Exception {
         Customer customer = customerServiceImpl.listCustomers().get(0);
 
