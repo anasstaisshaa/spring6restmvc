@@ -23,6 +23,11 @@ public class BeerController {
 
     private final BeerService beerService;
 
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity handleNotFoundException(){
+        return ResponseEntity.notFound().build();
+    }
+
     @PatchMapping(BEER_PATH_ID)
     public ResponseEntity updateBeerPatchById(@PathVariable("beerId")UUID beerId, @RequestBody Beer beer){
 
