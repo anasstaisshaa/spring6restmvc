@@ -1,20 +1,20 @@
 package anastasiia.springframework.spring6restmvc.service;
 
-import anastasiia.springframework.spring6restmvc.model.Customer;
+import anastasiia.springframework.spring6restmvc.model.CustomerDTO;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface CustomerService {
-    List<Customer> listCustomers();
-    Customer getCustomerById(UUID uuid);
+    List<CustomerDTO> listCustomers();
+    CustomerDTO getCustomerById(UUID uuid);
 
-    Customer saveNewCustomer(Customer customer);
+    CustomerDTO saveNewCustomer(CustomerDTO customer);
 
-    void updateCustomerById(UUID id, Customer customer);
+    void updateCustomerById(UUID id, CustomerDTO customer);
 
     void deleteById(UUID id);
 
-    void patchCustomerById(UUID id, Customer customer);
+    void patchCustomerById(UUID id, CustomerDTO customer);
 }
 
